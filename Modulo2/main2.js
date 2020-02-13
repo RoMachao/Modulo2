@@ -1,5 +1,6 @@
+function status(){ 
 let checkbox= document.getElementsByTagName("input")
-let members= datos.results[0].members
+let members= data.results[0].members
 let select= document.querySelector("#select")
 select.addEventListener("change", tablita)
 
@@ -21,6 +22,7 @@ function estados(members){
 }
 
 estados(members)
+
 for (var i = checkbox.length - 1; i >= 0; i--) {
 	checkbox[i].addEventListener("click", tablita)
 }
@@ -51,6 +53,7 @@ table.forEach(member => {
 	<td> ${member.party}</td>
 	<td> ${member.state}</td>
 	<td> ${member.seniority}</td>
-	<td> ${"%"+member.votes_with_party_pct}</td>`
+	<td> ${+member.votes_with_party_pct}</td>`
 })
+}
 }
