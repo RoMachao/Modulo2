@@ -6,6 +6,7 @@
     </head>
     
     <body>
+      <div id="app">
          <div >
          <div class="ml-3 d-flex ">
       <img src="logotgifhome.jpg" alt="lupita" height="45" width="45"> 
@@ -69,6 +70,10 @@
                     </tr>
                 </thead>
                 <tbody id="first">
+                  <tr v-for="(partido,key) in partidosh">
+                    <td>{{key}}</td>
+                    <td v-for="(value, i) in partido">{{value}}</td>
+                    </tr>
                    
                 </tbody>
             </table>
@@ -84,6 +89,12 @@
                     </tr>
                 </thead>
                 <tbody id="fourth">
+                  <tr v-for="member in diezprimeros(members,'votes_with_party_pct',true)">
+                       <td><a :href="member.url">{{member.first_name}} {{member.second_name}} {{member.last_name}}</a></td>
+                    <td>{{((member.total_votes) * member.votes_with_party_pct / 100).toFixed(0)}}</td>
+                        <td>{{member.votes_with_party_pct}}%</td>
+                    </tr>
+
                     
                 </tbody>
             </table>
@@ -99,16 +110,23 @@
                     </tr>
                 </thead>
                 <tbody id="fifth">
+                  <tr v-for="member in diezprimeros(members,'votes_with_party_pct',false)">
+                        <td><a :href="member.url">{{member.first_name}} {{member.second_name}} {{member.last_name}}</a></td>
+                    <td>{{((member.total_votes) * member.votes_with_party_pct / 100).toFixed(0)}}</td>
+                        <td>{{member.votes_with_party_pct}}%</td>
+                    </tr>
                     
                 </tbody>
             </table>
           </div>
     	</div>    
+    </div>
          <div class="footer-copyright text-center py-3 border border-rounded-sm bg-active">© 2020 TGIF | All Rights Reserved</div>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
          <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="fetch.js"></script>
-        <script src="Javascript/stats.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+        <script src="newmain.js"></script>
 </body>
 </html>
